@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 20;
+  --background-end-rgb: 0, 0, 10;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  min-height: 100dvh;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus styles */
+:focus-visible {
+  outline: 2px solid #5f8afa;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(95, 138, 250, 0.3);
+}
+
+/* Improved selection color */
+::selection {
+  background-color: rgba(95, 138, 250, 0.3);
+  color: white;
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(95, 138, 250, 0.05) 25%,
+    rgba(95, 138, 250, 0.1) 37%,
+    rgba(95, 138, 250, 0.05) 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced section transitions */
+.section-transition {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(13, 13, 26, 0) 0%, rgba(13, 13, 26, 1) 10%);
+  pointer-events: none;
+}
+
+.section-transition::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(95, 138, 250, 0.1), transparent);
+  opacity: 0.5;
+}
+
+/* Enhanced scanlines effect */
+.bg-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255, 255, 255, 0.05) 2px
+  );
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  pointer-events: none;
+}
+
+/* Enhanced grid pattern */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(95, 138, 250, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(95, 138, 250, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+/* Animation utilities */
+@keyframes glow {
+  0%,
+  100% {
+    filter: brightness(1) blur(3px);
+  }
+  50% {
+    filter: brightness(1.2) blur(4px);
+  }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Improved section backgrounds */
+.bg-deep-space {
+  background: linear-gradient(to bottom, rgb(13, 13, 26), rgb(17, 17, 35));
+  position: relative;
+}
+
+.bg-deep-space::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(95, 138, 250, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+/* Improved hover effects */
+@keyframes hover-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(95, 138, 250, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(95, 138, 250, 0.2);
+  }
+}
+
+.hover-glow:hover {
+  animation: hover-glow 2s infinite;
+}
+
+/* Add responsive typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Improved mobile tap targets */
+@media (max-width: 640px) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Enhanced card hover effects */
+@keyframes card-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(95, 138, 250, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(95, 138, 250, 0.2);
+  }
+}
+
+.card-glow {
+  animation: card-glow 2s infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
